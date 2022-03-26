@@ -9,19 +9,24 @@ let valores = [];
 
 function arrayFinal(){
    if(!isNaN(entrada.value)){
-      numero = entrada.value;
-      valores.push(numero);
-      entrada.value = "";
-      entrada.focus();
-      for(let contador = 0; contador <= 1; contador++){
-         lista.innerHTML = "";
-         for(let contador = 0; contador < valores.length; contador++){
-            lista.innerHTML += '<li>' + valores[contador] + '</li>';
+      if(entrada.value == ""){
+         alert("Digite um valor valido!");
+      }
+      else{
+         numero = entrada.value;
+         valores.push(numero);
+         entrada.value = "";
+         entrada.focus();
+         for(let contador = 0; contador <= 1; contador++){
+            lista.innerHTML = "";
+            for(let contador = 0; contador < valores.length; contador++){
+               lista.innerHTML += '<li>' + valores[contador] + '</li>';
+            }
          }
       }
    }
    else{
-      alert("Digite novamente");
+      alert("Digite um valor valido!");
       entrada.value = "";
       entrada.focus();
    }
@@ -31,19 +36,24 @@ function arrayFinal(){
 
 function arrayComeço(){
    if(!isNaN(entrada.value)){
-      numero = entrada.value;
-      valores.unshift(numero);
-      entrada.value = "";
-      entrada.focus();
-         for(let contador = 0; contador <= 1; contador++){
-         lista.innerHTML = "";
-         for(let contador = 0; contador < valores.length; contador++){
-            lista.innerHTML += '<li>' + valores[contador] + '</li>';
+      if(entrada.value == ""){
+         alert("Digite um valor valido!")
+      }
+      else{
+         numero = entrada.value;
+         valores.unshift(numero);
+         entrada.value = "";
+         entrada.focus();
+            for(let contador = 0; contador <= 1; contador++){
+            lista.innerHTML = "";
+            for(let contador = 0; contador < valores.length; contador++){
+               lista.innerHTML += '<li>' + valores[contador] + '</li>';
+            }
          }
       }
    }
    else{
-      alert("Digite novamente");
+      alert("Digite um valor valido!");
       entrada.value = "";
       entrada.focus();
    }
