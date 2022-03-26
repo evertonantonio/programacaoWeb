@@ -2,6 +2,8 @@ let entrada = document.getElementById("inputInicial");
 let botaoInicial = document.getElementById("arrayInicio");
 let botaoFinal = document.getElementById("arrayFinal");
 let botaoZerar = document.getElementById("zerar");
+let entradaRemover = document.getElementById("inputRemover");
+let botaoRemover = document.getElementById("botaoRemover")
 const lista = document.getElementById("lista");
 
 let valores = [];
@@ -60,7 +62,7 @@ function arrayComeço(){
 
 }
 
-function limpar(){
+function limparArray(){
    for(let contador = valores.length + 1; contador > 0; contador--){
       valores.pop();
    }
@@ -69,6 +71,21 @@ function limpar(){
    lista.innerHTML = valores;
 }
 
+function limparIndice(){
+   let indice = entradaRemover.value - 1; 
+   valores.splice(indice ,1);
+   entradaRemover.value = "";
+   entradaRemover.focus();
+   for(let contador = 0; contador <= 1; contador++){
+      lista.innerHTML = "";
+      for(let contador = 0; contador < valores.length; contador++){
+         lista.innerHTML += '<li>' + valores[contador] + '</li>';
+      }
+   }
+
+}
+
 botaoInicial.onclick = arrayFinal;
 botaoFinal.onclick = arrayComeço;
-botaoZerar.onclick = limpar;
+botaoZerar.onclick = limparArray;
+botaoRemover.onclick = limparIndice;
