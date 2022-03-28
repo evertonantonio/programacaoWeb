@@ -72,14 +72,21 @@ function limparArray(){
 }
 
 function limparIndice(){
-   let indice = entradaRemover.value - 1; 
-   valores.splice(indice ,1);
-   entradaRemover.value = "";
-   entradaRemover.focus();
-   for(let contador = 0; contador <= 1; contador++){
-      lista.innerHTML = "";
-      for(let contador = 0; contador < valores.length; contador++){
-         lista.innerHTML += '<li>' + valores[contador] + '</li>';
+   if(entradaRemover.value > valores.length || entradaRemover.value <= 0){
+      entradaRemover.value = "";
+      entradaRemover.focus();
+      alert("Valor do índice é inválido, digite novamente!");
+   }
+   else{
+      let indice = entradaRemover.value - 1; 
+      valores.splice(indice ,1);
+      entradaRemover.value = "";
+      entradaRemover.focus();
+      for(let contador = 0; contador <= 1; contador++){
+         lista.innerHTML = "";
+         for(let contador = 0; contador < valores.length; contador++){
+            lista.innerHTML += '<li>' + valores[contador] + '</li>';
+         }
       }
    }
 
